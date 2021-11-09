@@ -70,7 +70,8 @@ class Home extends React.Component {
             .then((data) => {
               // console.log(data);
               const preview = data.data;
-              songsCleaned.unshift({
+              songsCleaned.push({
+                id: song.timestamp,
                 contributor: song.contributor,
                 timestamp: new Date(song.timestamp * 1000).toLocaleDateString(
                   "en-US",
@@ -86,7 +87,9 @@ class Home extends React.Component {
               });
 
               this.setState({
-                allSongs: songsCleaned,
+                allSongs: songsCleaned.sort(function (a, b) {
+                  return b.id - a.id;
+                }),
               });
             });
         });
@@ -211,6 +214,10 @@ class Home extends React.Component {
   };
 
   wave = async () => {
+    if (this.state.url === "") {
+      alert("Please provide a spotify link");
+      return false;
+    }
     try {
       const { ethereum } = window;
 
@@ -331,9 +338,21 @@ class Home extends React.Component {
              * If there is no currentAccount render this button
              */}
             {!this.state.account && (
-              <button className="waveButton" onClick={this.connectWallet}>
-                But first, Connect your Wallet
-              </button>
+              <div style={{ textAlign: "center" }}>
+                <button className="waveButton" onClick={this.connectWallet}>
+                  But first, Connect your Wallet
+                </button>
+                <p>
+                  If your dont know what a wallet its, I recommend you{" "}
+                  <a
+                    href="https://metamask.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    MetaMask
+                  </a>
+                </p>
+              </div>
             )}
             {this.state.minign && (
               <div>
@@ -357,7 +376,9 @@ class Home extends React.Component {
               </div>
             )}
             <div>
-              <h2>Songs added: {this.state.total}</h2>
+              <h2 style={{ fontSize: 14 + "px" }}>
+                Songs added: {this.state.total}
+              </h2>
             </div>
             {this.state.allSongs.map((song, index) => {
               return (
@@ -372,7 +393,7 @@ class Home extends React.Component {
                     <table border="0">
                       <tbody>
                         <tr>
-                          <td>
+                          <td style={{ minWidth: "102px" }}>
                             <a
                               rel="noreferrer"
                               href={song.url}
@@ -439,17 +460,18 @@ class Home extends React.Component {
               collect the most <br /> awesome music collection. Presented with
               react js and web3 js.
             </p>
-            Hi, Im Alan Hurtarte, a Lead full stack developer with more than 5
-            years of <br />
-            professional experiencie. This is my first web3 project. Made with
-            💙 from 🇬🇹 <br /> <a href="https://github.com/kenny08gt">
-              Github
-            </a>{" "}
-            | <a href="https://twitter.com/alanhurtarte">Twitter</a> |{" "}
-            <a href="https://www.linkedin.com/in/alanhurtarte/">Linkedin</a>{" "}
-            <br />
-            <br />
-            Thanks to @_buildspace. <br />
+            <p>
+              Hi, Im Alan Hurtarte, a Lead full stack developer with more than 5
+              years of <br />
+              professional experiencie. This is my first web3 project. Made with
+              💙 from 🇬🇹 <br /> <br />
+              <a href="https://github.com/kenny08gt">Github</a> |{" "}
+              <a href="https://twitter.com/alanhurtarte">Twitter</a> |{" "}
+              <a href="https://www.linkedin.com/in/alanhurtarte/">Linkedin</a>{" "}
+              <br />
+              <br />
+              Thanks to @_buildspace. <br />
+            </p>
           </div>
         </div>
       </div>
