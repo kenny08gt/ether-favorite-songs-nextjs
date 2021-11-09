@@ -68,7 +68,7 @@ class Home extends React.Component {
           axios
             .get("/api/spotify/" + encodeURIComponent(song.url))
             .then((data) => {
-              console.log(data);
+              // console.log(data);
               const preview = data.data;
               songsCleaned.unshift({
                 contributor: song.contributor,
@@ -179,7 +179,11 @@ class Home extends React.Component {
 
       console.log("Connected", accounts[0]);
       this.setCurrentAccount(accounts[0]);
+      this.getAllSongs();
       this.getTotal();
+      this.setState({
+        userFound: true,
+      });
     } catch (error) {
       console.log(error);
     }
