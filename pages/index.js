@@ -303,10 +303,10 @@ class Home extends React.Component {
             </div>
 
             <div className="bio">
-              Let's build something great together!. Add your favorite song in
-              spotify. <br />
-              Let's build the greatest playlist of all time. Please add a valid
-              spotify url.
+              Let&apos;s build something great together!. Add your favorite song
+              in spotify. <br />
+              Let&apos;s build the greatest playlist of all time. Please add a
+              valid spotify url.
             </div>
 
             {this.state.userFound && (
