@@ -256,6 +256,46 @@ class Home extends React.Component {
     }
     return (
       <div>
+        <Head>
+          <title>Ether Favorite Songs</title>
+          <meta name="title" content="Ether Favorite Songs" />
+          <meta
+            name="description"
+            content="Share your favorite song on Spotify"
+          />
+
+          {/* <!-- Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:url"
+            content="https://ether-favorite-songs.alanhurtarte.repl.co/"
+          />
+          <meta property="og:title" content="Ether favorite songs" />
+          <meta
+            property="og:description"
+            content="Add your favorite song to the blockchain"
+          />
+          <meta
+            property="og:image"
+            content="https://ether-favorite-songs.alanhurtarte.repl.co/social.png"
+          />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content="https://ether-favorite-songs.alanhurtarte.repl.co/"
+          />
+          <meta property="twitter:title" content="Ether favorite songs" />
+          <meta
+            property="twitter:description"
+            content="Add your favorite song to the blockchain"
+          />
+          <meta
+            property="twitter:image"
+            content="https://ether-favorite-songs.alanhurtarte.repl.co/social.png"
+          />
+        </Head>
         <div className="mainContainer">
           <div className="dataContainer">
             <div className="header">
