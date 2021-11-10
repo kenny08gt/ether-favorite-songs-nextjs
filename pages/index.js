@@ -354,6 +354,19 @@ class Home extends React.Component {
                 </p>
               </div>
             )}
+            <br />
+            <small>
+              Note: This project its for learning purposes, so its build on the
+              Rinkeby testnet of ethereum. So its using fake Ether. You can
+              claim Ether over{" "}
+              <a
+                href="https://faucet.rinkeby.io/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                here
+              </a>
+            </small>
             {this.state.minign && (
               <div>
                 <br />
